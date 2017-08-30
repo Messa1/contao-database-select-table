@@ -1,7 +1,8 @@
 # contao-database_select_field
 A database select field for the frontend.
-
 Use Database to build a select. 
+
+![alt text](https://raw.githubusercontent.com/Messa1/contao-database_select_field/master/package.jpg)
 
 ## Contributor
 

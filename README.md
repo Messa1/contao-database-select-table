@@ -14,6 +14,9 @@ After installation you have a new field to choose at the form generator of conta
 
 ![alt text](https://raw.githubusercontent.com/Messa1/contao-database_select_field/master/package.jpg)
 
+# Tested
+Tested with 3.5.28.
+
 ## Contributor
 
 * Matthias Gmeiner <matthias@matthiasgmeiner.com>, http://www.matthiasgmeiner.com

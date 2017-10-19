@@ -4,11 +4,14 @@ Use Database to build a select.
 
 ![alt text](https://raw.githubusercontent.com/Messa1/contao-database_select_field/master/package.jpg)
 
+## Tested
+Tested with Contao 3.5.29
+
 ## Contributor
 
 * Matthias Gmeiner <matthias@matthiasgmeiner.com>, http://www.matthiasgmeiner.com
 
-MIT License
+LGPL-3.0+ License
 
 Copyright (c) 2017 Matthias Gmeiner
 

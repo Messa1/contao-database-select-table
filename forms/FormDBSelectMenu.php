@@ -41,7 +41,6 @@ class FormDBSelectMenu extends \Widget
 	 */
 	protected $strPrefix = 'widget widget-db-select';
 
-
 	/**
 	 * Add specific attributes
 	 *
@@ -214,18 +213,39 @@ class FormDBSelectMenu extends \Widget
 		$datenbank = $this->db_select_datenbank;
 		$datenbank_id = $this->db_select_id;
 		$datenbank_name = $this->db_select_name;
+		$datenbank_sorting_field = $this->db_sorting_field;
+		$datenbank_sorting = $this->db_sorting;
+		$datenbank_start = $this->db_conditions_start;
+		$db_conditions = deserialize($this->db_conditions);
+		$numItems = count($db_conditions);
+		$i = 0;
 		
-		// Get options
-		 
-		$this->import('Database');
-		$result = $this->Database->prepare("SELECT ".$datenbank_name.", ".$datenbank_id." FROM ".$datenbank."")->execute();
-
+		foreach ($db_conditions as $db_condition) {
+			if(++$i === $numItems) {
+				$db_condition['operator'] = '';
+			  }
+			$datenbank_conditions .= $db_condition['key'] ."="."'".$db_condition['key_2']."' ".$db_condition['operator'] ." ";
+		}
+				
+		// First option
+		if ($this->db_select_empty == '1') {
+			$arrOptions[] = array('value' => $this->db_select_empty_value, 'label' => $this->db_select_empty_name);
+		}
+		
+		// Get options 
+		$this->import('Database');		
+		if (empty($datenbank_conditions) OR ($this->db_conditions_select != '1')){
+			$result = $this->Database->prepare("SELECT ".$datenbank_name.", ".$datenbank_id." FROM ".$datenbank." ORDER BY ".$datenbank_sorting_field." ".$datenbank_sorting." ")->execute();
+		}
+		else {
+			$result = $this->Database->prepare("SELECT ".$datenbank_name.", ".$datenbank_id." FROM ".$datenbank." ".$datenbank_start." ".$datenbank_conditions." ORDER BY ".$datenbank_sorting_field." ".$datenbank_sorting." ")->execute();		
+			}
+			
 		while($result->next())
 		{		
-			$arrOptions[] = array('value' => $result->id, 'label' => $result->$datenbank_name);
-			
+			$arrOptions[] = array('value' => $result->id, 'label' => $result->$datenbank_name);			
 		}
-
+		
 		// Add empty option (XHTML) if there are none
 		if (empty($arrOption) || !is_array($arrOption))
 		{
@@ -246,9 +266,7 @@ class FormDBSelectMenu extends \Widget
 			
 		}
 
-		
-
-		return $arrOptions;
+			return $arrOptions;
 	}
 
     /**

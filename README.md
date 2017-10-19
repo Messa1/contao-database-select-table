@@ -2,20 +2,7 @@
 A database select field for the frontend.
 Use Database to build a select. 
 
-# Installation
-1. Download ZIP
-2. Unzip file
-3. Rename folder to 'database_select_field'
-4. Upload folder to /system/modules
-5. Make database update
-
-# Usage
-After installation you have a new field to choose at the form generator of contao.
-
 ![alt text](https://raw.githubusercontent.com/Messa1/contao-database_select_field/master/package.jpg)
-
-# Tested
-Tested with 3.5.28.
 
 ## Contributor
 

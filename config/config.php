@@ -9,3 +9,4 @@
  */
 
 $GLOBALS['TL_FFL']['db_select_field'] = 'MatthiasGmeiner\FormDBSelectMenu';  
+$GLOBALS['BE_FFL']['ConditionsList'] = 'ConditionsList'; 

@@ -2,7 +2,7 @@
 A database select field for the frontend.
 Use Database to build a select. 
 
-![alt text](https://raw.githubusercontent.com/Messa1/contao-database_select_field/master/package.jpg)
+![alt text](https://raw.githubusercontent.com/Messa1/contao-database_select_field/master/screenshot.jpg)
 
 ## Tested
 Tested with Contao 3.5.29

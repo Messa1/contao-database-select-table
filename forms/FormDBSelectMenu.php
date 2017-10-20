@@ -118,10 +118,10 @@ class FormDBSelectMenu extends \Widget
 		$varInput = $this->validator($options);
 
 		// Check for a valid option (see #4383)
-		if (!empty($varInput) && !$this->isValidOption($varInput))
+		/*if (!empty($varInput) && !$this->isValidOption($varInput))
 		{
 			$this->addError($GLOBALS['TL_LANG']['ERR']['invalid']);
-		}
+		}*/
 
 		// Add class "error"
 		if ($this->hasErrors())

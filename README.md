@@ -8,7 +8,7 @@ Use a table to build a select.
 
 * Matthias Gmeiner <matthias@matthiasgmeiner.com>, http://www.matthiasgmeiner.com
 
-MIT License
+LGPL-3.0+ License
 
 Copyright (c) 2017 Matthias Gmeiner
 

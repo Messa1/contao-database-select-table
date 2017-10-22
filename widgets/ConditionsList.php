@@ -136,15 +136,15 @@ class ConditionsList extends \Widget
 		$tabindex = \Cache::get('tabindex');
 		
 		$this->import('Database');
-		$table = $this->objDca->activeRecord->db_select_datenbank;
+		$table = $this->objDca->activeRecord->dbst_select_table;
 						
 		// Begin the table
 		$return = '<table class="tl_optionwizard" id="ctrl_'.$this->strId.'">
   <thead>
     <tr>
-      <th>'.$GLOBALS['TL_LANG']['MSC']['db_field'].'</th>
-	  <th>'.$GLOBALS['TL_LANG']['MSC']['db_value'].'</th>
-	  <th>'.$GLOBALS['TL_LANG']['MSC']['db_operator'].'</th>
+      <th>'.$GLOBALS['TL_LANG']['MSC']['dbst_field'].'</th>
+	  <th>'.$GLOBALS['TL_LANG']['MSC']['dbst_value'].'</th>
+	  <th>'.$GLOBALS['TL_LANG']['MSC']['dbst_operator'].'</th>
       <th>&nbsp;</th>
     </tr>
   </thead>

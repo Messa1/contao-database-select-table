@@ -32,7 +32,7 @@ class FormDBSelectMenu extends \Widget
 	 *
 	 * @var string
 	 */
-	protected $strTemplate = 'form_db_select';
+	protected $strTemplate = 'form_dbst_select';
 
 	/**
 	 * The CSS class prefix
@@ -210,40 +210,40 @@ class FormDBSelectMenu extends \Widget
 		$arrOptions = array();
 		$blnHasGroups = false;
 		
-		$datenbank = $this->db_select_datenbank;
-		$datenbank_id = $this->db_select_id;
-		$datenbank_name = $this->db_select_name;
-		$datenbank_sorting_field = $this->db_sorting_field;
-		$datenbank_sorting = $this->db_sorting;
-		$datenbank_start = $this->db_conditions_start;
-		$db_conditions = deserialize($this->db_conditions);
-		$numItems = count($db_conditions);
+		$dbst_table = $this->dbst_select_table;
+		$dbst_id = $this->dbst_select_id;
+		$dbst_name = $this->dbst_select_name;
+		$dbst_sorting_field = $this->dbst_sorting_field;
+		$dbst_sorting = $this->dbst_sorting;
+		$dbst_start = $this->dbst_conditions_start;
+		$dbst_conditions_all = deserialize($this->dbst_conditions, true);
+		$numItems = count($dbst_conditions_all);
 		$i = 0;
 		
-		foreach ($db_conditions as $db_condition) {
+		foreach ($dbst_conditions_all as $dbst_condition) {
 			if(++$i === $numItems) {
-				$db_condition['operator'] = '';
+				$dbst_condition['operator'] = '';
 			  }
-			$datenbank_conditions .= $db_condition['key'] ."="."'".$db_condition['key_2']."' ".$db_condition['operator'] ." ";
+			$dbst_conditions .= $dbst_condition['key'] ."="."'".$dbst_condition['key_2']."' ".$dbst_condition['operator'] ." ";
 		}
 				
 		// First option
-		if ($this->db_select_empty == '1') {
-			$arrOptions[] = array('value' => $this->db_select_empty_value, 'label' => $this->db_select_empty_name);
+		if ($this->dbst_select_empty == '1') {
+			$arrOptions[] = array('value' => $this->dbst_select_empty_value, 'label' => $this->dbst_select_empty_name);
 		}
 		
 		// Get options 
 		$this->import('Database');		
-		if (empty($datenbank_conditions) OR ($this->db_conditions_select != '1')){
-			$result = $this->Database->prepare("SELECT ".$datenbank_name.", ".$datenbank_id." FROM ".$datenbank." ORDER BY ".$datenbank_sorting_field." ".$datenbank_sorting." ")->execute();
+		if (empty($dbst_conditions) OR ($this->dbst_conditions_select != '1')){
+			$result = $this->Database->prepare("SELECT ".$dbst_name.", ".$dbst_id." FROM ".$dbst_table." ORDER BY ".$dbst_sorting_field." ".$dbst_sorting." ")->execute();
 		}
 		else {
-			$result = $this->Database->prepare("SELECT ".$datenbank_name.", ".$datenbank_id." FROM ".$datenbank." ".$datenbank_start." ".$datenbank_conditions." ORDER BY ".$datenbank_sorting_field." ".$datenbank_sorting." ")->execute();		
+			$result = $this->Database->prepare("SELECT ".$dbst_name.", ".$dbst_id." FROM ".$dbst_table." ".$dbst_start." ".$dbst_conditions." ORDER BY ".$dbst_sorting_field." ".$dbst_sorting." ")->execute();		
 			}
 			
 		while($result->next())
 		{		
-			$arrOptions[] = array('value' => $result->id, 'label' => $result->$datenbank_name);			
+			$arrOptions[] = array('value' => $result->id, 'label' => $result->$dbst_name);			
 		}
 		
 		// Add empty option (XHTML) if there are none

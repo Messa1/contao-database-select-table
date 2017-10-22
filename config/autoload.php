@@ -24,10 +24,10 @@ ClassLoader::addNamespaces(array
 ClassLoader::addClasses(array
 (
 	// Forms
-	'MatthiasGmeiner\FormDBSelectMenu' => 'system/modules/contao-database_select_field/forms/FormDBSelectMenu.php',
+	'MatthiasGmeiner\FormDBSelectMenu' => 'system/modules/database-select-table/forms/FormDBSelectMenu.php',
 
 	// Widgets
-	'MatthiasGmeiner\ConditionsList'   => 'system/modules/contao-database_select_field/widgets/ConditionsList.php',
+	'MatthiasGmeiner\ConditionsList'   => 'system/modules/database-select-table/widgets/ConditionsList.php',
 ));
 
 
@@ -36,5 +36,5 @@ ClassLoader::addClasses(array
  */
 TemplateLoader::addFiles(array
 (
-	'form_db_select' => 'system/modules/contao-database_select_field/templates',
+	'form_dbst_select' => 'system/modules/database-select-table/templates',
 ));

@@ -11,65 +11,65 @@
 $strName = 'tl_form_field';
 
 // Palette
-$GLOBALS['TL_DCA'][$strName]['palettes']['db_select_field'] = 
-'{type_legend},type,name,label;{db_select_field_legend},db_select_datenbank,db_select_id,db_select_name,db_sorting_field,db_sorting,db_conditions_select,db_select_empty;{fconfig_legend},mandatory;{expert_legend:hide},class;{template_legend:hide},customTpl;{submit_legend},addSubmit';
+$GLOBALS['TL_DCA'][$strName]['palettes']['dbst_select_field'] = 
+'{type_legend},type,name,label;{dbst_select_field_legend},dbst_select_table,dbst_select_id,dbst_select_name,dbst_sorting_field,dbst_sorting,dbst_conditions_select,dbst_select_empty;{fconfig_legend},mandatory;{expert_legend:hide},class;{template_legend:hide},customTpl;{submit_legend},addSubmit';
 
 // Subpalette
-$GLOBALS['TL_DCA'][$strName]['subpalettes']['db_select_empty'] = 'db_select_empty_value,db_select_empty_name';
+$GLOBALS['TL_DCA'][$strName]['subpalettes']['dbst_select_empty'] = 'dbst_select_empty_value,dbst_select_empty_name';
 
-$GLOBALS['TL_DCA'][$strName]['subpalettes']['db_conditions_select'] = 'db_conditions_start,db_conditions';
+$GLOBALS['TL_DCA'][$strName]['subpalettes']['dbst_conditions_select'] = 'dbst_conditions_start,dbst_conditions';
 
-$GLOBALS['TL_DCA'][$strName]['palettes']['__selector__'][] = 'db_select_empty';  
-$GLOBALS['TL_DCA'][$strName]['palettes']['__selector__'][] = 'db_conditions_select';  
+$GLOBALS['TL_DCA'][$strName]['palettes']['__selector__'][] = 'dbst_select_empty';  
+$GLOBALS['TL_DCA'][$strName]['palettes']['__selector__'][] = 'dbst_conditions_select';  
 
 // Fields
-$GLOBALS['TL_DCA'][$strName]['fields']['db_select_datenbank'] = array
+$GLOBALS['TL_DCA'][$strName]['fields']['dbst_select_table'] = array
 (
-    'label'                   => &$GLOBALS['TL_LANG'][$strName]['db_select_datenbank'],
+    'label'                   => &$GLOBALS['TL_LANG'][$strName]['dbst_select_table'],
 	'exclude'                 => true,
 	'search'                  => true,
 	'inputType'               => 'select',
-	'options_callback'        => array('db_select_field', 'getAllTables'),
+	'options_callback'        => array('dbst_select_field', 'getAllTables'),
 	'eval'                    => array('chosen'=>true, 'submitOnChange' => true, 'tl_class'=>'w100'),
 	'sql'                     => "varchar(64) NOT NULL default ''"
 );
 
-$GLOBALS['TL_DCA'][$strName]['fields']['db_select_id'] = array
+$GLOBALS['TL_DCA'][$strName]['fields']['dbst_select_id'] = array
 (
-    'label'                   => &$GLOBALS['TL_LANG'][$strName]['db_select_id'],
+    'label'                   => &$GLOBALS['TL_LANG'][$strName]['dbst_select_id'],
 	'exclude'                 => true,
 	'search'                  => true,
 	'inputType'               => 'select',
-	'options_callback'        => array('db_select_field', 'getAllFields'),
+	'options_callback'        => array('dbst_select_field', 'getAllFields'),
 	'eval'                    => array('chosen'=>true, 'tl_class'=>'w50 clr'),
 	'sql'                     => "varchar(64) NOT NULL default ''"
 );
 
-$GLOBALS['TL_DCA'][$strName]['fields']['db_select_name'] = array
+$GLOBALS['TL_DCA'][$strName]['fields']['dbst_select_name'] = array
 (
-    'label'                   => &$GLOBALS['TL_LANG'][$strName]['db_select_name'],
+    'label'                   => &$GLOBALS['TL_LANG'][$strName]['dbst_select_name'],
 	'exclude'                 => true,
 	'search'                  => true,
 	'inputType'               => 'select',
-	'options_callback'        => array('db_select_field', 'getAllFields'),
+	'options_callback'        => array('dbst_select_field', 'getAllFields'),
 	'eval'                    => array('chosen'=>true, 'tl_class'=>'w50'),
 	'sql'                     => "varchar(64) NOT NULL default ''"
 );
 
-$GLOBALS['TL_DCA'][$strName]['fields']['db_sorting_field'] = array
+$GLOBALS['TL_DCA'][$strName]['fields']['dbst_sorting_field'] = array
 (
-    'label'                   => &$GLOBALS['TL_LANG'][$strName]['db_sorting_field'],
+    'label'                   => &$GLOBALS['TL_LANG'][$strName]['dbst_sorting_field'],
 	'exclude'                 => true,
 	'search'                  => true,
 	'inputType'               => 'select',
-	'options_callback'        => array('db_select_field', 'getAllFields'),
+	'options_callback'        => array('dbst_select_field', 'getAllFields'),
 	'eval'                    => array('chosen'=>true, 'tl_class'=>'w50 clr'),
 	'sql'                     => "varchar(64) NOT NULL default ''"
 );
 
-$GLOBALS['TL_DCA'][$strName]['fields']['db_sorting'] = array
+$GLOBALS['TL_DCA'][$strName]['fields']['dbst_sorting'] = array
 (
-    'label'                   => &$GLOBALS['TL_LANG'][$strName]['db_sorting'],
+    'label'                   => &$GLOBALS['TL_LANG'][$strName]['dbst_sorting'],
 	'exclude'                 => true,
 	'search'                  => true,
 	'inputType'               => 'select',
@@ -78,18 +78,18 @@ $GLOBALS['TL_DCA'][$strName]['fields']['db_sorting'] = array
 	'sql'                     => "varchar(64) NOT NULL default ''"
 );
 
-$GLOBALS['TL_DCA'][$strName]['fields']['db_conditions_select'] = array
+$GLOBALS['TL_DCA'][$strName]['fields']['dbst_conditions_select'] = array
 (
-	'label'                   =>  &$GLOBALS['TL_LANG'][$strName]['db_conditions_select'],
+	'label'                   =>  &$GLOBALS['TL_LANG'][$strName]['dbst_conditions_select'],
 	'exclude'                 => true,
 	'inputType'               => 'checkbox',
 	'eval'                    => array('submitOnChange'=>true, 'tl_class'=>'w50 clr'),
 	'sql'                     => "char(1) NOT NULL default ''"
 );
 
-$GLOBALS['TL_DCA'][$strName]['fields']['db_conditions_start'] = array
+$GLOBALS['TL_DCA'][$strName]['fields']['dbst_conditions_start'] = array
 (
-	'label'                   => &$GLOBALS['TL_LANG'][$strName]['db_conditions_start'],
+	'label'                   => &$GLOBALS['TL_LANG'][$strName]['dbst_conditions_start'],
 	'exclude'                 => true,
 	'search'                  => true,
 	'inputType'               => 'select',
@@ -99,9 +99,9 @@ $GLOBALS['TL_DCA'][$strName]['fields']['db_conditions_start'] = array
 
 );
 
-$GLOBALS['TL_DCA'][$strName]['fields']['db_conditions'] = array
+$GLOBALS['TL_DCA'][$strName]['fields']['dbst_conditions'] = array
 (
-	'label'                   => &$GLOBALS['TL_LANG'][$strName]['db_conditions'],
+	'label'                   => &$GLOBALS['TL_LANG'][$strName]['dbst_conditions'],
 	'exclude'                 => true,
 	'search'                  => true,
 	'inputType'               => 'ConditionsList',
@@ -110,18 +110,18 @@ $GLOBALS['TL_DCA'][$strName]['fields']['db_conditions'] = array
 	'sql'                     => "blob NULL"
 );
 
-$GLOBALS['TL_DCA'][$strName]['fields']['db_select_empty'] = array
+$GLOBALS['TL_DCA'][$strName]['fields']['dbst_select_empty'] = array
 (
-	'label'                   =>  &$GLOBALS['TL_LANG'][$strName]['db_select_empty'],
+	'label'                   =>  &$GLOBALS['TL_LANG'][$strName]['dbst_select_empty'],
 	'exclude'                 => true,
 	'inputType'               => 'checkbox',
 	'eval'                    => array('submitOnChange'=>true, 'tl_class'=>'w50 clr'),
 	'sql'                     => "char(1) NOT NULL default ''"
 );
 		
-$GLOBALS['TL_DCA'][$strName]['fields']['db_select_empty_value'] = array
+$GLOBALS['TL_DCA'][$strName]['fields']['dbst_select_empty_value'] = array
 (
-	'label'                   =>  &$GLOBALS['TL_LANG'][$strName]['db_select_empty_value'],
+	'label'                   =>  &$GLOBALS['TL_LANG'][$strName]['dbst_select_empty_value'],
 	'exclude'                 => true,
 	'inputType'               => 'text',
 	'eval'                    => array('mandatory'=>false, 'maxlength'=>255, 'tl_class'=>'w50 clr'),
@@ -129,9 +129,9 @@ $GLOBALS['TL_DCA'][$strName]['fields']['db_select_empty_value'] = array
 );
 
 	
-$GLOBALS['TL_DCA'][$strName]['fields']['db_select_empty_name'] = array
+$GLOBALS['TL_DCA'][$strName]['fields']['dbst_select_empty_name'] = array
 (
-	'label'                   =>  &$GLOBALS['TL_LANG'][$strName]['db_select_empty_name'],
+	'label'                   =>  &$GLOBALS['TL_LANG'][$strName]['dbst_select_empty_name'],
 	'exclude'                 => true,
 	'inputType'               => 'text',
 	'eval'                    => array('mandatory'=>false, 'maxlength'=>255, 'tl_class'=>'w50'),
@@ -139,7 +139,7 @@ $GLOBALS['TL_DCA'][$strName]['fields']['db_select_empty_name'] = array
 );
 
 
-class db_select_field extends Backend
+class dbst_select_field extends Backend
 {
 
 /**
@@ -155,7 +155,7 @@ public function getAllTables()
 public function getAllFields(DataContainer $dc)
 {
 	
-	$table = $dc->activeRecord->db_select_datenbank;
+	$table = $dc->activeRecord->dbst_select_table;
 	if (!$table) {
 		$table = 'tl_article';
 		}

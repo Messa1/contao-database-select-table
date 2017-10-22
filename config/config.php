@@ -8,5 +8,5 @@
  * @license LGPL-3.0+
  */
 
-$GLOBALS['TL_FFL']['db_select_field'] = 'MatthiasGmeiner\FormDBSelectMenu';  
+$GLOBALS['TL_FFL']['dbst_select_field'] = 'MatthiasGmeiner\FormDBSelectMenu';  
 $GLOBALS['BE_FFL']['ConditionsList'] = 'ConditionsList'; 

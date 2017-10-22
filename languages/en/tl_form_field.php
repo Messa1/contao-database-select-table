@@ -10,11 +10,11 @@
 
 $strName   = 'tl_form_field';
 
-$GLOBALS['TL_LANG']['FFL']['dbst_select_table']            = array('Select with database values', 'Select with database values');
+$GLOBALS['TL_LANG']['FFL']['dbst_select_field']            = array('Select with database values', 'Select with database values');
 
 $GLOBALS['TL_LANG'][$strName]['dbst_select_field_legend']   = 'Select';
 
-$GLOBALS['TL_LANG'][$strName]['dbst_select_datenbank'] = array
+$GLOBALS['TL_LANG'][$strName]['dbst_select_table'] = array
 (
     'Database',
     'Choose database.'

@@ -14,7 +14,7 @@ $GLOBALS['TL_LANG']['FFL']['dbst_select_field']            = array('Select mit D
 
 $GLOBALS['TL_LANG'][$strName]['dbst_select_field_legend']   = 'Select';
 
-$GLOBALS['TL_LANG'][$strName]['dbst_select_datenbank'] = array
+$GLOBALS['TL_LANG'][$strName]['dbst_select_table'] = array
 (
     'Datenbank',
     'Datenbank wählen'
